@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TURING CHAMBER - 语音版</title>
+    <meta name="color-scheme" content="dark">
+    <link rel="stylesheet" href="/static/theme.css">
+</head>
+<body>
+    <div class="app">
+        <!-- 顶部状态栏（保留动态更新状态） -->
+        <div class="topbar">
+            <span class="pulse"></span>
+            <span class="title">TURING VOICE</span>
+            <span class="me" id="me-name" style="margin-right: 15px; color: #a62626;">连接中...</span>
+            <span class="me" id="status">未连接</span>
+        </div>
+
+        <div style="background-color: #1a0f0f; color: #a62626; font-size: 12px; text-align: center; padding: 8px; border-left: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); letter-spacing: 1px; font-weight: bold;">
+            [系统] 欢迎进入精神病院，按住按钮开始发言...
+        </div>
+
+        <!-- 聊天记录区 -->
+        <div id="messages">
+        </div>
+
+        <!-- 底部输入区 -->
+        <div class="input-row">
+            <button id="record-btn" disabled>按住说话 (上滑取消)</button>
+        </div>
+
+        <!-- 🌟 底部防伪标识栏（赛博紫） -->
+        <div class="footer-bar" style="display: flex; justify-content: center; align-items: center; padding: 10px; background-color: var(--bg-elev); border: 1px solid var(--border); border-top: none; border-radius: 0 0 4px 4px;">
+            <span style="color: #b026ff; font-weight: bold; font-size: 12px; letter-spacing: 2px; text-shadow: 0 0 5px rgba(176, 38, 255, 0.5);">Designed by 未登录</span>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

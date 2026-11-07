@@ -7,7 +7,7 @@ PORT = int(os.getenv("PORT", 8000))
 
 
 # --- 硅基流动 语音识别 (ASR) 配置 ---
-SILICONFLOW_API_KEY = os.getenv("SILICONFLOW_API_KEY", "sk-tnrgkqtpvpzkdmfvmsebvautjadkfuhfkmqccfyuvfxuiwtz")
+SILICONFLOW_API_KEY = os.getenv("SILICONFLOW_API_KEY", "")
 
 SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1"
 
@@ -15,8 +15,8 @@ ASR_MODEL = "FunAudioLLM/SenseVoiceSmall"
 
 
 # --- 智谱 AI 配置 ---
-ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "sk-7mV1cj1ux6v7tw7JZPPj9RT0BHfQlM5K0lydwAdxtY6I8Mvo")
-#ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "4cb246999e374a9f99592e7267224594.GKxYYzPagGUKGjSQ")
+ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")
+#ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")
 
 ZHIPU_BASE_URL = "https://apihub.agnes-ai.com/v1"
 #ZHIPU_BASE_URL = "https://open.bigmodel.cn/api/paas/v4/"

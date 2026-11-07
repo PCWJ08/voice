@@ -35,5 +35,5 @@ async def audio_to_text(base64_audio: str) -> str:
         return response.text
 
     except Exception as e:
-        print(f"❌ [语音识别报错]: {e}", flush=True)
+        print(f"❗️ [识别报错]: {e}", flush=True)
         return "（没听清或识别失败）"

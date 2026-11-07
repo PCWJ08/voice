@@ -9,7 +9,7 @@ llm_client = AsyncOpenAI(
     api_key=config.ZHIPU_API_KEY
 )
 
-BAD_WORDS = ["操"]
+BAD_WORDS = ["死"]
 
 async def generate_ai_reply(player_name: str, user_text: str) -> str:
     persona = config.AI_PERSONAS[player_name]
@@ -31,7 +31,7 @@ async def generate_ai_reply(player_name: str, user_text: str) -> str:
             result = result.replace(word, "*")
         return result
     except Exception as e:
-        print(f"❌ [模型报错] {player_name}: {e}", flush=True)
+        print(f"❗️ [模型报错] {player_name}: {e}", flush=True)
         return ""
 
 async def text_to_base64_audio(text: str, voice: str, role: str = "normal") -> str:
@@ -51,5 +51,5 @@ async def text_to_base64_audio(text: str, voice: str, role: str = "normal") -> s
                 
         return base64.b64encode(audio_data).decode('utf-8')
     except Exception as e:
-        print(f"❌ [TTS 报错] : {e}", flush=True)
+        print(f"❗️ [TTS 报错] : {e}", flush=True)
         return ""

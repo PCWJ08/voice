@@ -1,4 +1,3 @@
-import os
 import json
 import asyncio
 import random
@@ -52,7 +51,7 @@ async def reply_from_ai(ai_name: str, user_text: str, is_auto: bool = False):
     if not ai_reply_text:
         return
         
-    print(f"[ AI ] {ai_name} 回复 -> \"{ai_reply_text}\"", flush=True)
+    print(f"🤖 [ AI ] {ai_name} 说: \"{ai_reply_text}\"", flush=True)
     
     voice_id = config.AI_PERSONAS[ai_name]["voice"]
     ai_audio_base64 = await game_ai.text_to_base64_audio(ai_reply_text, voice_id, role=ai_name)
@@ -105,7 +104,7 @@ async def websocket_endpoint(websocket: WebSocket):
     # 如果名字带空格，我们也保留
     assigned_name = "圆周率" if user_count == 1 else f"圆周率_{user_count}"
     
-    print(f"[连接] {assigned_name} 进入房间", flush=True)
+    print(f"✔️ [连接] {assigned_name} 进入房间", flush=True)
     
     try:
         await websocket.send_text(f"SYSTEM_INIT::{assigned_name}")
@@ -129,20 +128,20 @@ async def websocket_endpoint(websocket: WebSocket):
                     user_text = await audio_to_text(audio_base64)
                     size_kb = len(audio_base64) / 1024
                     
-                    print(f"\n[语音] {sender} 说({size_kb:.1f}KB) -> \"{user_text}\"", flush=True)
+                    print(f"\n👤 [语音] {sender} 说: ({size_kb:.1f}KB) \"{user_text}\"", flush=True)
 
                     for ai_name in list(config.AI_PERSONAS.keys()):
                         asyncio.create_task(reply_from_ai(ai_name, user_text, is_auto=False))
 
             except Exception as e:
-                print(f"❌ [处理报错]: {e}", flush=True)
+                print(f"❗️ [处理报错]: {e}", flush=True)
             
     except WebSocketDisconnect:
-        print(f"[断开] {assigned_name} 离开房间\n", flush=True)
+        print(f"❌ [断开] {assigned_name} 离开房间\n", flush=True)
         manager.disconnect(websocket)
         user_count -= 1
     except asyncio.CancelledError:
-        print(f"[断开] {assigned_name} 异常断开", flush=True)
+        print(f"❌ [断开] {assigned_name} 异常断开\n", flush=True)
         manager.disconnect(websocket)
         user_count -= 1
 
